@@ -1,0 +1,18 @@
+Knapsack (i, w)
+    0     if i == len(items)
+    0     if w == 0
+    -inf  if w <  0
+
+return max
+    v[i] + Knapsack (i+1, W-w[i])
+        otherwise
+    0    + Knapsack (i+1, W)
+
+1)    The 0/1 knapsack is easier easier to solve because once you calculate weight to value, it either fits or it doesnt.
+2)    It wouldn't work because the fractional algorithm would take fractions of the whole which wouldn't be correct for the 0/1 problem.
+Example
+    10
+    2
+    a 100 6
+    b 50  5
+    
