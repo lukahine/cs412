@@ -9,24 +9,24 @@
 
 import math
 
+
 # Function to calculate the Euclidean distance between two cities
 def calculate_distance(city1, city2):
     x1, y1 = city1
     x2, y2 = city2
     return math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
 
+
 # Implementation of Prim's algorithm to find the minimum spanning tree
 def prim(graph):
     n = len(graph)
-    # Create a list to track if a vertex is in the MST
     in_mst = [False] * n
-    # Initialize the MST with the first vertex
     in_mst[0] = True
     mst_cost = 0
     edges = []
 
     while len(edges) < n - 1:
-        min_edge = (float('inf'), None, None)  # (weight, u, v)
+        min_edge = (float('inf'), None, None)
         for u in range(n):
             if in_mst[u]:
                 for v, weight in graph[u].items():
@@ -50,9 +50,12 @@ def build_graph(city_coordinates):
             graph[j][i] = distance
     return graph
 
-if __name__ == "__main":
+def main():
     n = int(input())
     city_coordinates = [tuple(map(float, input().split())) for _ in range(n)]
     graph = build_graph(city_coordinates)
     min_cost = prim(graph)
-    print(f"{min_cost:.1f}M")
+    print(f"${min_cost:.1f}M")
+
+if __name__ == "__main__":
+    main()
